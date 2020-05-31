@@ -15,6 +15,24 @@
   color: white;
 }
 
+.navbar-nav {
+  margin: auto;
+}
+.navbar-nav .navbar-divider {
+  margin-top: 8px;
+  display: none;
+}
+@media (min-width: 992px) {
+  .navbar-nav .navbar-divider {
+    display: inline-block;
+  }
+}
+@media (min-width: 992px) {
+  .navbar-nav li a {
+    padding: 8px 25px !important;
+  }
+}
+
 #homepage div {
   padding-bottom: 15px;
 }
