@@ -10,5 +10,8 @@
 #homepage h1 {
   padding-bottom: 10px;
 }
+#homepage #home-family-pic {
+  max-width: 100%;
+}
 
 /*# sourceMappingURL=base.css.map */
