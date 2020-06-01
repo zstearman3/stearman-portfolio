@@ -18,13 +18,9 @@
 .navbar-nav {
   margin: auto;
 }
-.navbar-nav .navbar-divider {
-  margin-top: 8px;
-  display: none;
-}
 @media (min-width: 992px) {
-  .navbar-nav .navbar-divider {
-    display: inline-block;
+  .navbar-nav .active {
+    text-decoration: underline;
   }
 }
 @media (min-width: 992px) {

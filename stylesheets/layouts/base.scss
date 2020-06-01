@@ -17,16 +17,16 @@
 
 .navbar-nav{
   margin: auto;
-  .navbar-divider{
-    margin-top: 8px;
-    display: none;
-    @media (min-width: 992px) {
-      display: inline-block;
+  @media (min-width: 992px) {
+    .active{
+      text-decoration: underline;
     }
   }
-  li a{
-    @media (min-width: 992px) {
-      padding: 8px 25px !important;
+  li{
+    a{
+      @media (min-width: 992px) {
+        padding: 8px 25px !important;
+      }
     }
   }
 }
