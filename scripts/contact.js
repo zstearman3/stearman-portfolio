@@ -36,7 +36,7 @@ var ContactForm = function (_React$Component) {
       };
       console.log(formattedData);
 
-      fetch('https://x5dwvahcbe.execute-api.us-east-1.amazonaws.com/contact/contact', {
+      fetch('https://x5dwvahcbe.execute-api.us-east-1.amazonaws.com/contact', {
         method: 'POST',
         body: data
       });
