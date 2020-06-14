@@ -36,11 +36,10 @@ var ContactForm = function (_React$Component) {
       };
       console.log(formattedData);
 
-      // fetch('/api/form-submit-url', {
-      //   method: 'POST',
-      //   body: data,
-      // });
-      // clear form and show a success message
+      fetch('https://x5dwvahcbe.execute-api.us-east-1.amazonaws.com/contact', {
+        method: 'POST',
+        body: data
+      });
 
       alert("Your message has been sent!");
       document.getElementById("contact-form").reset();
