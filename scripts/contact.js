@@ -10,47 +10,79 @@ var ContactForm = function (_React$Component) {
   _inherits(ContactForm, _React$Component);
 
   function ContactForm() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
     _classCallCheck(this, ContactForm);
 
-    return _possibleConstructorReturn(this, (ContactForm.__proto__ || Object.getPrototypeOf(ContactForm)).apply(this, arguments));
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ContactForm.__proto__ || Object.getPrototypeOf(ContactForm)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      formFields: {
+        name: '',
+        email: '',
+        message: ''
+      }
+    }, _this.formHandler = function (e) {
+      e.preventDefault();
+      var data = new FormData(e.target);
+      var formattedData = {
+        name: data.get('nameInput'),
+        email: data.get('emailInput'),
+        message: data.get('messageInput')
+      };
+      console.log(formattedData);
+
+      // fetch('/api/form-submit-url', {
+      //   method: 'POST',
+      //   body: data,
+      // });
+      // clear form and show a success message
+
+      alert("Your message has been sent!");
+      document.getElementById("contact-form").reset();
+    }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(ContactForm, [{
-    key: "render",
+    key: 'render',
     value: function render() {
       return React.createElement(
-        "div",
-        { "class": "row" },
+        'div',
+        { 'class': 'row' },
         React.createElement(
-          "div",
-          { "class": "col-lg-6 offset-lg-3" },
+          'div',
+          { 'class': 'col-lg-6 offset-lg-3' },
           React.createElement(
-            "h1",
+            'h1',
             null,
-            "Get in touch!"
+            'Get in touch!'
           ),
           React.createElement(
-            "form",
-            null,
+            'form',
+            { id: 'contact-form', onSubmit: this.formHandler },
             React.createElement(
-              "div",
-              { className: "form-group", id: "formName" },
-              React.createElement("input", { className: "form-control", id: "nameInput", type: "text", placeholder: "Your name" })
+              'div',
+              { className: 'form-group', id: 'formName' },
+              React.createElement('input', { className: 'form-control', id: 'nameInput', name: 'nameInput', type: 'text', placeholder: 'Your name' })
             ),
             React.createElement(
-              "div",
-              { className: "form-group", id: "formEmail" },
-              React.createElement("input", { className: "form-control", id: "emailInput", type: "email", placeholder: "Your email" })
+              'div',
+              { className: 'form-group', id: 'formEmail' },
+              React.createElement('input', { className: 'form-control', id: 'emailInput', name: 'emailInput', type: 'email', placeholder: 'Your email' })
             ),
             React.createElement(
-              "div",
-              { className: "form-group", id: "formMessage" },
-              React.createElement("textarea", { className: "form-control", id: "messageInput", rows: "5", placeholder: "Your message" })
+              'div',
+              { className: 'form-group', id: 'formMessage' },
+              React.createElement('textarea', { className: 'form-control', id: 'messageInput', name: 'messageInput', rows: '5', placeholder: 'Your message' })
             ),
             React.createElement(
-              "button",
-              { type: "submit", "class": "btn btn-primary" },
-              "SEND"
+              'button',
+              { type: 'submit', 'class': 'btn btn-primary' },
+              'SEND'
             )
           )
         )
