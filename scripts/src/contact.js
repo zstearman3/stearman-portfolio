@@ -19,7 +19,8 @@ class ContactForm extends React.Component {
 
     fetch('https://x5dwvahcbe.execute-api.us-east-1.amazonaws.com/01/contact', {
       method: 'POST',
-      body: data,
+      dataType: 'json',
+      body: JSON.stringify(formattedData),
     });
 
     alert("Your message has been sent!");
