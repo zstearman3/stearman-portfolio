@@ -29,20 +29,24 @@ var ContactForm = function (_React$Component) {
     }, _this.formHandler = function (e) {
       e.preventDefault();
       var data = new FormData(e.target);
-      var formattedData = {
-        name: data.get('nameInput'),
-        email: data.get('emailInput'),
-        message: data.get('messageInput')
-      };
-      console.log(formattedData);
+      var spamCheck = data.get('filterInput');
+      console.log(spamCheck);
+      if (spamCheck == null) {
+        var formattedData = {
+          name: data.get('nameInput'),
+          email: data.get('emailInput'),
+          message: data.get('messageInput')
+        };
+        console.log(formattedData);
 
-      fetch('https://x5dwvahcbe.execute-api.us-east-1.amazonaws.com/01/contact', {
-        method: 'POST',
-        dataType: 'json',
-        body: JSON.stringify(formattedData)
-      });
+        fetch('https://x5dwvahcbe.execute-api.us-east-1.amazonaws.com/01/contact', {
+          method: 'POST',
+          dataType: 'json',
+          body: JSON.stringify(formattedData)
+        });
 
-      alert("Your message has been sent!");
+        alert("Your message has been sent!");
+      }
       document.getElementById("contact-form").reset();
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
@@ -78,6 +82,11 @@ var ContactForm = function (_React$Component) {
               'div',
               { className: 'form-group', id: 'formMessage' },
               React.createElement('textarea', { className: 'form-control', id: 'messageInput', name: 'messageInput', rows: '5', placeholder: 'Your message' })
+            ),
+            React.createElement(
+              'div',
+              { className: 'form-group honeypot d-none', id: 'formFilter' },
+              React.createElement('input', { className: 'form-control', type: 'checkbox', id: 'filterInput', name: 'filterInput' })
             ),
             React.createElement(
               'button',

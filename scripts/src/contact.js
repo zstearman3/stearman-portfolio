@@ -10,22 +10,26 @@ class ContactForm extends React.Component {
   formHandler = (e) => {
     e.preventDefault();
     const data = new FormData(e.target);
-    const formattedData = {
-      name: data.get('nameInput'),
-      email: data.get('emailInput'),
-      message: data.get('messageInput')
+    const spamCheck = data.get('filterInput');
+    console.log(spamCheck);
+    if (spamCheck == null){
+      const formattedData = {
+          name: data.get('nameInput'),
+          email: data.get('emailInput'),
+          message: data.get('messageInput')
+        };
+        console.log(formattedData);
+
+        fetch('https://x5dwvahcbe.execute-api.us-east-1.amazonaws.com/01/contact', {
+          method: 'POST',
+          dataType: 'json',
+          body: JSON.stringify(formattedData),
+        });
+
+        alert("Your message has been sent!");
+      }
+      document.getElementById("contact-form").reset();
     };
-    console.log(formattedData);
-
-    fetch('https://x5dwvahcbe.execute-api.us-east-1.amazonaws.com/01/contact', {
-      method: 'POST',
-      dataType: 'json',
-      body: JSON.stringify(formattedData),
-    });
-
-    alert("Your message has been sent!");
-    document.getElementById("contact-form").reset();
-  };
 
   render() {
     return(
@@ -41,6 +45,9 @@ class ContactForm extends React.Component {
             </div>
             <div className="form-group" id="formMessage">
               <textarea className="form-control" id="messageInput" name="messageInput" rows="5" placeholder="Your message" />
+            </div>
+            <div className="form-group honeypot d-none" id="formFilter">
+              <input className="form-control" type="checkbox" id="filterInput" name="filterInput"></input>
             </div>
             <button type="submit" class="btn btn-primary">SEND</button>
           </form>
