@@ -9,7 +9,8 @@ class App extends React.Component {
         <div className="portfolio-objects">
           <p>
             So, this site is a work in progress, but one of my philosophies when developing
-            a project is to push to production early and often. Eventually this site will
+            a project is to push to production early and often. Currently, I'm working hard to receive my
+            AWS Associate Developer Certification, but I will turn to this site afterwards! Eventually this site will
             host my full portfolio, but for now, I just wanted to write a little as a placeholder.
             I'm not sharing this site yet, but there's always a chance someone stumbles onto it! Also,
             feel free to check out <a href="https://github.com/zstearman3" target='_blank'>my github profile.</a>
